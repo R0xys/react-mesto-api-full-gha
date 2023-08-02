@@ -7,7 +7,7 @@ function getUser(userId, res, next) {
   User.findById(userId)
     .then((user) => {
       if (!user) throw new NotFoundError('Пользователь с таким id не найден');
-      return res.send({ user });
+      return res.send(user);
     })
     .catch((err) => {
       if (err instanceof mongoose.Error.CastError) next(new BadRequestError('Переданы некорректные данные в метод получения пользователя'));

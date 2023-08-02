@@ -7,7 +7,7 @@ function findUserAndUpdate(userId, data, res, next) {
   User.findByIdAndUpdate(userId, data, { new: true, runValidators: true })
     .then((user) => {
       if (!user) throw new NotFoundError('Пользователь с таким id не найден');
-      return res.send({ user });
+      return res.send(user);
     })
     .catch((err) => {
       if (err instanceof mongoose.Error.ValidationError) next(new BadRequestError('Переданы некорректные данные в метод обновления профиля пользователя'));

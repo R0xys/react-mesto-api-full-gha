@@ -11,7 +11,7 @@ function findCardAndUpdate(cardId, option, errMessage, res, next) {
   )
     .then((card) => {
       if (!card) throw new NotFoundError('Карточка с таким id не найдена');
-      return res.send({ card });
+      return res.send(card);
     })
     .catch((err) => {
       if (err instanceof mongoose.Error.CastError) next(new BadRequestError(errMessage));
