@@ -11,6 +11,7 @@ mongoose.connect('mongodb://127.0.0.1/mestodb');
 app.use(express.json());
 app.use(cookieParser());
 app.use(requestLogger);
+app.use(require('./middlewares/corsRequest'));
 app.post('/signin', require('./requestValidation').loginBodyValidator, require('./controllers/login').login);
 app.post('/signup', require('./requestValidation').createUserBodyValidator, require('./controllers/users').createUser);
 
