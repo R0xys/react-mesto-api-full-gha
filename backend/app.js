@@ -16,7 +16,6 @@ app.post('/signup', require('./requestValidation').createUserBodyValidator, requ
 
 app.use(require('./middlewares/auth'));
 app.use(require('./routes/index'));
-
 app.use(errorLogger);
 
 app.use(errors());
