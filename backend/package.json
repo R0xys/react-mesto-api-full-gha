@@ -1,0 +1,38 @@
+{
+  "name": "express-mesto-gha",
+  "version": "0.0.1",
+  "description": "Backend for mesto project",
+  "main": "app.js",
+  "homepage": "https://github.com/R0xys/express-mesto-gha",
+  "author": "r0-0ky",
+  "license": "ISC",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/R0xys/express-mesto-gha"
+  },
+  "bugs": {
+    "url": "https://github.com/R0xys/express-mesto-gha/issues"
+  },
+  "dependencies": {
+    "bcryptjs": "2.4.3",
+    "celebrate": "15.0.1",
+    "cookie-parser": "1.4.6",
+    "dotenv": "16.3.1",
+    "express": "4.18.2",
+    "express-winston": "4.2.0",
+    "jsonwebtoken": "9.0.1",
+    "mongoose": "7.3.2",
+    "winston": "3.10.0"
+  },
+  "devDependencies": {
+    "eslint": "8.44.0",
+    "eslint-config-airbnb-base": "15.0.0",
+    "eslint-plugin-import": "2.27.5",
+    "nodemon": "2.0.22"
+  },
+  "scripts": {
+    "lint": "npx eslint .",
+    "start": "node app.js",
+    "dev": "nodemon app.js"
+  }
+}

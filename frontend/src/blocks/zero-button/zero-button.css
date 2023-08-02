@@ -1,0 +1,7 @@
+.zero-button {
+  background: none;
+  border: none;
+  display: inline;
+  cursor: pointer;
+  padding: 0;
+}

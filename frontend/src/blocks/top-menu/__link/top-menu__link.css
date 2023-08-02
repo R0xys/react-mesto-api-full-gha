@@ -1,0 +1,14 @@
+.top-menu__link {
+  font-weight: 400;
+  font-size: 18px;
+  line-height: 22px;
+  color: #FFFFFF;
+  opacity: 1;
+  transition: opacity 0.3s;
+  text-decoration: none;
+  margin: 0 0 40px 0;
+}
+
+.top-menu__link:hover {
+  opacity: 0.6;
+}
