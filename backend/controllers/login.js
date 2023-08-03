@@ -10,7 +10,6 @@ module.exports.login = (req, res, next) => {
         maxAge: 3600000 * 24 * 7,
         httpOnly: true,
         sameSite: 'None',
-        secure: true,
       });
       res.send({
         _id: user._id,
