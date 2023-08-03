@@ -31,7 +31,7 @@ app.get('/signout', (req, res) => {
     sameSite: 'None',
     secure: true,
   });
-  res.send();
+  res.status(200).send('Exit success');
 });
 
 app.use(require('./middlewares/auth'));
