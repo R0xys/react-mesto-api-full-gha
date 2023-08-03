@@ -23,6 +23,11 @@ app.use(cors(corsOptions));
 app.use(express.json());
 app.use(cookieParser());
 app.use(requestLogger);
+app.get('/crash-test', () => {
+  setTimeout(() => {
+    throw new Error('Сервер сейчас упадёт');
+  }, 0);
+});
 app.post('/signin', require('./requestValidation').loginBodyValidator, require('./controllers/login').login);
 app.post('/signup', require('./requestValidation').createUserBodyValidator, require('./controllers/users').createUser);
 
