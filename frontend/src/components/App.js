@@ -101,7 +101,7 @@ function App() {
   function handleAddPlaceSubmit(card) {
     api.addNewCard(card)
       .then(res => {
-        setCardsList([res, ...cardsList]);
+        setCardsList([...cardsList, res]);
         closeAllPopups();
       })
       .catch((err) => console.log(err))
@@ -113,9 +113,14 @@ function App() {
   }
 
   const handleSignOut = () => {
-    setLoggedIn(false);
-    setBurgerMenuOpen(false);
-    localStorage.removeItem("jwt");
+    mestoAuth.signOut()
+    .then(() => {
+      setLoggedIn(false);
+      setBurgerMenuOpen(false);
+    })
+    .catch((err) => {
+      console.log(err);
+    })
   }
 
   const handleSignUp = (data) => {
@@ -139,7 +144,6 @@ function App() {
       "email": data.username 
     })
       .then(res => {
-        localStorage.setItem("jwt", res.token);
         setLoggedIn(true);
         navigate("/", {replace: true});
         setUserEmail(data.username);
@@ -151,19 +155,15 @@ function App() {
   }
 
   const checkToken = () => {
-    const jwt = localStorage.getItem("jwt");
-
-    if (jwt) {
-      mestoAuth.checkToken(jwt)
-        .then(res => {
-          setLoggedIn(true);
-          setUserEmail(res.data.email);
-          navigate("/", {replace: true})
-        })
-        .catch((err) => {
-          console.log(err)
-        })
-    }
+    mestoAuth.checkToken()
+      .then(res => {
+        setLoggedIn(true);
+        setUserEmail(res.email);
+        navigate("/", {replace: true})
+      })
+      .catch((err) => {
+        console.log(err)
+      })
   }
 
   const changeStateBurgerMenu = () => {
@@ -192,7 +192,7 @@ function App() {
       setCardsList(cardsData);
     })
     .catch((err) => console.log(err));
-  }, [])
+  }, [loggedIn])
 
   return (
     <CurrentUserContext.Provider value={{currentUser, cardsList}}>

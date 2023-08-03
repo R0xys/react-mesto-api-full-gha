@@ -4,6 +4,7 @@ import { CurrentUserContext } from "../contexts/CurrentUserContext.js";
 
 function Main(props) {
   const {currentUser, cardsList} = React.useContext(CurrentUserContext);
+  console.log();
   
   return (
   <main className="main">
@@ -24,7 +25,7 @@ function Main(props) {
       <button onClick={props.onAddPlace} className="profile__add-button zero-button" type="button"></button>
     </section>
     <section className="grid-cards">
-      {cardsList.map((item) => (
+    {Array.from(cardsList).reverse().map((item) => (
         <Card key={item._id} onCardDelete={props.onCardDelete} onCardClick={props.onCardClick} onCardLike={props.onCardLike} card={item} />
       ))}
     </section>

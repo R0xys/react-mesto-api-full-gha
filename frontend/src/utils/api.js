@@ -12,8 +12,8 @@ class Api {
   }
 
   getApiData(path) {
-    console.log(`${this._baseUrl}/${path}`);
     return fetch(`${this._baseUrl}/${path}`, {
+      credentials: 'include',
       method: "GET",
       headers: this._headers,
     })
@@ -62,7 +62,6 @@ class Api {
     return fetch(`${this._baseUrl}/cards/${cardId}/likes`, {
       method: "DELETE",
       credentials: 'include',
-      headers: this._headers,
     })
       .then(this._checkResponse)
   }
