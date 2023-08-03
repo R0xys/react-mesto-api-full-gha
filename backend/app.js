@@ -26,8 +26,11 @@ app.post('/signin', require('./requestValidation').loginBodyValidator, require('
 app.post('/signup', require('./requestValidation').createUserBodyValidator, require('./controllers/users').createUser);
 
 app.get('/signout', (req, res) => {
-  res.clearCookie('jwt');
-  res.send('Cookie cleared');
+  res.clearCookie('jwt', {
+    httpOnly: true,
+    sameSite: 'None',
+    secure: true,
+  });
 });
 
 app.use(require('./middlewares/auth'));
