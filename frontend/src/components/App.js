@@ -101,6 +101,9 @@ function App() {
   function handleAddPlaceSubmit(card) {
     api.addNewCard(card)
       .then(res => {
+        const _id = res.owner;
+        res.owner = { _id };
+        console.log(res);
         setCardsList([...cardsList, res]);
         closeAllPopups();
       })
