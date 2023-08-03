@@ -5,8 +5,8 @@ const cors = require('cors');
 require('dotenv').config();
 const { errors } = require('celebrate');
 const { requestLogger, errorLogger } = require('./middlewares/logger');
+const { PORT } = require('./constants');
 
-const { PORT = 3000 } = process.env;
 const app = express();
 const corsOptions = {
   origin: [
