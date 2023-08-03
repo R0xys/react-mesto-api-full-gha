@@ -9,6 +9,8 @@ function findCardAndUpdate(cardId, option, errMessage, res, next) {
     option,
     { new: true },
   )
+    .populate('owner')
+    .populate('likes')
     .then((card) => {
       if (!card) throw new NotFoundError('Карточка с таким id не найдена');
       return res.send(card);
