@@ -25,6 +25,8 @@ app.use(requestLogger);
 app.post('/signin', require('./requestValidation').loginBodyValidator, require('./controllers/login').login);
 app.post('/signup', require('./requestValidation').createUserBodyValidator, require('./controllers/users').createUser);
 
+app.get('/signout', (req, res) => res.clearCookie('jwt'));
+
 app.use(require('./middlewares/auth'));
 app.use(require('./routes/index'));
 
