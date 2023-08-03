@@ -13,6 +13,7 @@ const corsOptions = {
     'http://localhost:3000',
     'http://localhost:3001',
     'https://r0-0ky.nomoreparties.co',
+    'http://r0-0ky.nomoreparties.co',
   ],
   credentials: true,
 };
