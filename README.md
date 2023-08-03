@@ -9,7 +9,7 @@
 
 ## Ссылки на проект
 
-IP-адрес IP 84.201.128.208
+IP-адрес 84.201.128.208
 
 Frontend https://r0-0ky.nomoreparties.co
 
