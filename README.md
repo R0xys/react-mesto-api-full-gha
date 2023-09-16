@@ -9,8 +9,8 @@
 
 ## Ссылки на проект
 
-IP 84.201.128.208
+IP -
 
-Frontend https://r0-0ky.nomoreparties.co
+Frontend -
 
-Backend https://api.r0-0ky.nomoreparties.co
+Backend -
